@@ -1,0 +1,5 @@
+{
+  "port" : 5001,
+  "jwtSecret": "eat, sleep, code",
+  "mongoUri": "mongodb+srv://yury:1q2w3e4r5t@cluster0.nmmup.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

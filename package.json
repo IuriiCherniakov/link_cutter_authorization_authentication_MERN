@@ -1,0 +1,32 @@
+{
+  "name": "full_stack_mern_app",
+  "version": "1.0.0",
+  "description": "Mern stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm  run client\""
+
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "node"
+  ],
+  "author": "Yury Chernyakov <chernyakov.yuriy@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.13"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
