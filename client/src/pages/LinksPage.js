@@ -1,5 +1,5 @@
 
-function LinksPage(props) {
+function LinksPage() {
     return (
         <div>Links Page</div>
     );

@@ -16,15 +16,18 @@ function AuthPage() {
         clearError();
     }, [error, message, clearError])
 
+    useEffect(() => {
+       window.M.updateTextFields();
+    }, [])
 
     const changeHandler = event => {
-        setForm({...form, [event.target.name]: event.target.value})
+        setForm({...form, [event.target.name]: event.target.value});
     };
 
     const registerHandler = async () => {
         try {
            const data = await request('/api/auth/register', 'POST', {...form});
-           message(data.message)
+           message(data.message);
             console.log('DATA', data);
         } catch (e) {}
     }
@@ -32,13 +35,10 @@ function AuthPage() {
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', {...form});
-            // message(data.message)
             auth.login(data.token, data.userId)
             console.log('DATA', data);
         } catch (e) {}
     }
-
-
 
     return (
         <div className='row'>
@@ -51,7 +51,6 @@ function AuthPage() {
                         <div className="card-content white-text">
                             <span className="card-title">Authorization</span>
                             <div>
-
                                 <div className="input-field">
                                     <input
                                         placeholder="Email"
@@ -71,7 +70,6 @@ function AuthPage() {
                                         name="password"
                                         className="yellow-input"
                                         onChange={changeHandler}
-
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
@@ -84,7 +82,6 @@ function AuthPage() {
                                 style={{marginRight: 10}}
                                 disabled={loading}
                                 onClick={loginHandler}
-
                             >
                                 Log In
                             </button>

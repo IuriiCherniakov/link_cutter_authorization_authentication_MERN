@@ -23,14 +23,13 @@ router.post(
                     message: 'Wrong registration data'
                 })
             }
-
             const {email, password} = req.body
-
             const candidate = await User.findOne({email: email})
 
             if (candidate) {
                 return res.status(400).json({message: 'This User is already created'})
             }
+
             const hashedPassword = await bcrypt.hash(password, 12)
             const user = new User({email: email, password: hashedPassword})
 
@@ -78,9 +77,7 @@ router.post(
             config.get('jwtSecret'),
             { expiresIn: '1h' }
         )
-
-        res.json({ token, userId: user.id})
-
+            res.json({token, userId: user.id})
 
         } catch (e) {
             res.status(500).json({

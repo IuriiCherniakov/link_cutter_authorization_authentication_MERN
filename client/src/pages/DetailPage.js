@@ -1,5 +1,5 @@
 
-function DetailPage(props) {
+function DetailPage() {
     return (
         <div>DetailPage</div>
     );

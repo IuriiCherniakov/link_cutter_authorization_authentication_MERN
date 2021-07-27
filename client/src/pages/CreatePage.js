@@ -1,5 +1,5 @@
 
-function CreatePage(props) {
+function CreatePage() {
     return (
         <div>CreatePage</div>
     );
