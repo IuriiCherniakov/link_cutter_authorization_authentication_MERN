@@ -8,7 +8,6 @@
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm  run client\""
-
   },
   "keywords": [
     "mern",
@@ -23,7 +22,8 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.13",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",

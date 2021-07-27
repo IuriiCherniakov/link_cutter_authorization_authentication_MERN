@@ -45,7 +45,9 @@ router.post(
 // /api/auth/login
 router.post(
     '/login',
-    [],
+    [
+        check('email', 'Type correct email').normalizeEmail().isEmail,
+        check('password', 'Type password').exists()],
     async (req, res) => {
         console.log(req.body);
         try {
