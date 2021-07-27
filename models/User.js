@@ -12,7 +12,8 @@ const schema = new Schema({
         required: true,
     },
     links: [{
-        type: Types.ObjectId, ref: 'Link'
+        type: Types.ObjectId,
+        ref: 'Link'
     }]
 
 })
