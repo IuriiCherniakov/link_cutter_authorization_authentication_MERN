@@ -49,7 +49,6 @@ router.post(
         check('email', 'Type correct email').normalizeEmail().isEmail,
         check('password', 'Type password').exists()],
     async (req, res) => {
-        console.log(req.body);
         try {
             const errors = validationResult(req)
 
@@ -79,7 +78,7 @@ router.post(
             config.get('jwtSecret'),
             { expiresIn: '1h' }
         )
-            res.status(200).json({token, userId: user.id})
+            res.json({token, userId: user.id})
 
         } catch (e) {
             res.status(500).json({
