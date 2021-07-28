@@ -1,6 +1,6 @@
 {
-  "port" : 5001,
+  "port" : 4000,
   "jwtSecret": "eat, sleep, code",
   "mongoUri": "mongodb+srv://yury:1q2w3e4r5t@cluster0.nmmup.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  "baseUrl": "http://localhost:5001"
+  "baseUrl": "http://localhost:4000"
 }
