@@ -35,10 +35,10 @@ router.post(
 
             await user.save()
 
-            res.status(201).json({ message: 'User created' })
+            res.status(201).json({message: 'User created'})
 
         } catch (e) {
-            res.status(500).json({ message: 'Something wrong, try again...' })
+            res.status(500).json({message: 'Something wrong, try again...'})
         }
     })
 
@@ -47,7 +47,8 @@ router.post(
     '/login',
     [
         check('email', 'Type correct email').normalizeEmail().isEmail,
-        check('password', 'Type password').exists()],
+        check('password', 'Type password').exists()
+    ],
     async (req, res) => {
         try {
             const errors = validationResult(req)
@@ -60,24 +61,24 @@ router.post(
             }
 
 
-        const {email, password} = req.body;
+            const {email, password} = req.body;
             console.log(req.body)
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(400).json({message: 'User not found'})
-        }
+            const user = await User.findOne({email});
+            if (!user) {
+                return res.status(400).json({message: 'User not found'})
+            }
 
-        const isMatch = await bcrypt.compare(password, user.password)
+            const isMatch = await bcrypt.compare(password, user.password)
 
-        if (!isMatch) {
-            return res.status(400).json({message: 'Password is incorrect, try again'})
-        }
+            if (!isMatch) {
+                return res.status(400).json({message: 'Password is incorrect, try again'})
+            }
 
-        const token = jwt.sign(
-            { userId: user.id },
-            config.get('jwtSecret'),
-            { expiresIn: '1h' }
-        )
+            const token = jwt.sign(
+                {userId: user.id},
+                config.get('jwtSecret'),
+                {expiresIn: '1h'}
+            )
             res.json({token, userId: user.id})
 
         } catch (e) {
